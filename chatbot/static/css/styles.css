@@ -1,0 +1,215 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    background: linear-gradient(135deg, #1c1c1c, #333333);
+    color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 80vh;
+    background-color: #444444;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #ff9800;
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+}
+
+/* Chatbot Name Section */
+.chatbot-name {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background-color: #444444;
+    color: #00e676;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    border-bottom: 3px solid #00c853;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Highlight the AI part of the name */
+.chatbot-name .highlight {
+    color: #00e5ff;
+}
+
+/* Chat Box for messages */
+.chat-box {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #2a2a2a; /* A darker shade for better contrast */
+    scroll-behavior: smooth;
+    margin: 15px;
+    border-radius: 15px;
+    border: 2px solid #ff9800; /* Keep your existing border for definition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* Message styles */
+.message {
+    display: block; /* Allow full width and text wrapping */
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    position: relative;
+    word-wrap: break-word; /* Allow text to break to the next line */
+    max-width: 80%; /* Messages will take up to 80% width of the chat box */
+    border: 2px solid transparent;
+    white-space: normal; /* Ensure that text wraps to the next line if needed */
+    box-shadow: none;
+}
+
+.user-message {
+    background-color: #00e676; /* User's message color */
+    color: #000;
+    align-self: flex-end; /* Keep user's message on the right */
+    border-bottom-right-radius: 0; /* Round bottom right corner */
+    max-width: fit-content; /* Adjusts to the content size */
+    margin-left: auto; /* Pushes user message to the right */
+}
+
+.bot-message {
+    background-color: #00e5ff; /* Bot's message color */
+    color: #000;
+    align-self: flex-start; /* Change this to flex-start to move the bot's reply to the left */
+    border-bottom-left-radius: 0; /* Round bottom left corner */
+    max-width: fit-content; /* Adjusts to the content size */
+    margin-right: auto; /* This will push the bot message to the left */
+}
+
+
+/* Input Area */
+.input-area {
+    display: flex;
+    border-top: 1px solid #444;
+    padding: 10px;
+    background-color: #2a2a2a;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 2px solid #00e676;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+    background-color: #1c1c1c;
+    color: #f1f1f1;
+    transition: border-color 0.2s;
+}
+
+#user-input:focus {
+    border-color: #00e5ff;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    background-color: #00e676;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #00c853;
+}
+
+#send-btn:active {
+    box-shadow: 0 0 10px #00e676;
+    transform: scale(0.98);
+}
+
+/* Additional Decorative Background Elements */
+body::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 229, 255, 0.1);
+    border-radius: 50%;
+    top: -50px;
+    right: -100px;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 230, 118, 0.15);
+    border-radius: 50%;
+    bottom: -80px;
+    left: -50px;
+    z-index: 0;
+}
+
+/* Styles for You and Seren's text */
+.user-name {
+    color: #000000;  
+    font-weight: bold;
+}
+
+.bot-name {
+    color: #ce9314;  
+    font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;  /* Dark background for the footer */
+    color: #f1f1f1;          /* Light text color */
+    text-align: left;        /* Align text to the left */
+    padding: 10px 20px;      /* Padding for top/bottom and left/right */
+    position: absolute;       /* Position it absolutely */
+    left: 0;                 /* Align to the left */
+    bottom: 0;               /* Align to the bottom */
+    width: 100%;             /* Ensure it spans the full width */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);  /* Optional shadow for better visibility */
+}
+
+.footer-content {
+    font-size: 12px;         /* Font size for the footer */
+}
+
+.footer-names {
+    font-weight: bold;       /* Make names bold */
+    color: #00BFFF;          /* Steel Blue color for contrast */
+}
